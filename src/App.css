@@ -1,3 +1,7 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 .App {
   text-align: center;
 }
@@ -35,4 +39,37 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.book-card-hover-group:hover {
+  box-shadow: 0 8px 32px rgba(59,130,246,0.18) !important;
+  transform: translateY(-2px) scale(1.03) !important;
+}
+
+.book-card-hover-group:hover .book-edit-fab,
+.book-edit-fab:focus,
+.book-edit-fab:hover {
+  opacity: 1 !important;
+  pointer-events: auto !important;
+}
+.book-edit-fab {
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s;
+}
+
+.fade-up {
+  animation: fadeUp 0.7s cubic-bezier(0.22,1,0.36,1) both;
+  animation-delay: var(--fade-delay, 0ms);
 }
